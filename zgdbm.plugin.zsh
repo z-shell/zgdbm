@@ -11,7 +11,7 @@ ZGDBM_CONFIG_DIR="$HOME/.config/zgdbm"
 
 #
 # Update FPATH if:
-# 1. Not loading with Zinit
+# 1. Not loading with ZI
 # 2. Not having fpath already updated (that would equal: using other plugin manager)
 #
 
@@ -48,8 +48,8 @@ zgdbm_compile() {
     )
 }
 
-if [ ! -e "${ZGDBM_REPO_DIR}/module/Src/z-shell/zgdbm.so" ]; then
-    builtin print "${fg_bold[magenta]}z-shell${reset_color}/${fg_bold[yellow]}zgdbm${reset_color} is building..."
+if [ ! -e "${ZGDBM_REPO_DIR}/module/Src/zshell/zgdbm.so" ]; then
+    builtin print "${fg_bold[magenta]}zshell${reset_color}/${fg_bold[yellow]}zgdbm${reset_color} is building..."
     zgdbm_compile
 elif [[ ! -f "${ZGDBM_REPO_DIR}/module/COMPILED_AT" || ( "${ZGDBM_REPO_DIR}/module/COMPILED_AT" -ot "${ZGDBM_REPO_DIR}/module/RECOMPILE_REQUEST" ) ]]; then
     # Don't trust access times and verify hard stored values
@@ -63,7 +63,7 @@ elif [[ ! -f "${ZGDBM_REPO_DIR}/module/COMPILED_AT" || ( "${ZGDBM_REPO_DIR}/modu
 fi
 
 # Finally load the module - if it has compiled
-if [[ -e "${ZGDBM_REPO_DIR}/module/Src/z-shell/zgdbm.so" ]]; then
+if [[ -e "${ZGDBM_REPO_DIR}/module/Src/zshell/zgdbm.so" ]]; then
     MODULE_PATH="${ZGDBM_REPO_DIR}/module/Src":"$MODULE_PATH"
-    zmodload z-shell/zgdbm
+    zmodload zshell/zgdbm
 fi
