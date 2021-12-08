@@ -48,8 +48,8 @@ zgdbm_compile() {
     )
 }
 
-if [ ! -e "${ZGDBM_REPO_DIR}/module/Src/zshell/zgdbm.so" ]; then
-    builtin print "${fg_bold[magenta]}zshell${reset_color}/${fg_bold[yellow]}zgdbm${reset_color} is building..."
+if [ ! -e "${ZGDBM_REPO_DIR}/module/Src/zi/zgdbm.so" ]; then
+    builtin print "${fg_bold[magenta]}zi${reset_color}/${fg_bold[yellow]}zgdbm${reset_color} is building..."
     zgdbm_compile
 elif [[ ! -f "${ZGDBM_REPO_DIR}/module/COMPILED_AT" || ( "${ZGDBM_REPO_DIR}/module/COMPILED_AT" -ot "${ZGDBM_REPO_DIR}/module/RECOMPILE_REQUEST" ) ]]; then
     # Don't trust access times and verify hard stored values
@@ -63,7 +63,7 @@ elif [[ ! -f "${ZGDBM_REPO_DIR}/module/COMPILED_AT" || ( "${ZGDBM_REPO_DIR}/modu
 fi
 
 # Finally load the module - if it has compiled
-if [[ -e "${ZGDBM_REPO_DIR}/module/Src/zshell/zgdbm.so" ]]; then
+if [[ -e "${ZGDBM_REPO_DIR}/module/Src/zi/zgdbm.so" ]]; then
     MODULE_PATH="${ZGDBM_REPO_DIR}/module/Src":"$MODULE_PATH"
-    zmodload zshell/zgdbm
+    zmodload zi/zgdbm
 fi
