@@ -14,7 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: configure
-      run: ./module/configure
+      run: |
+        "CFLAGS='-Wall -O2 -g' CPPFLAGS='-I/usr/local/include' LDFLAGS='-L/usr/local/lib' \
+        ./module/configure"
     - name: make test
       run: make -C module test
     - name: make
