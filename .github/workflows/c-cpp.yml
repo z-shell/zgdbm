@@ -21,4 +21,4 @@ jobs:
         CPPFLAGS=-I/usr/local/include CFLAGS="-g -Wall -O3" LDFLAGS=-L/usr/local/lib \
         ./module/configure --without-tcsetpgrp
     - name: make
-      run: make -C module
+      run: make -C module all
